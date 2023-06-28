@@ -1,0 +1,56 @@
+body {
+    background-color: antiquewhite;
+}
+
+.title {
+    margin-top: 5vw;
+    margin-bottom: 2vw;
+    text-align: center;
+    color: brown;
+}
+
+.order {
+    display: flex;
+    height: 60%;
+    width: 50vw;
+    padding: 20px !important;
+    border-radius: 20px;
+    border: brown;
+    margin: auto !important;
+    background-color: bisque;
+}
+
+#design-input {
+    width: 0px;
+	height: 0px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+#design-button {
+    color: white;
+}
+#design-button:hover {
+    color: black;
+}
+
+.img-container {
+    position: relative;
+    overflow: hidden;
+    margin-top: 5vh;
+}
+
+#cake {
+    position: relative;
+    width: 95%;
+}
+
+#caketop {
+    position: absolute;
+    width: 60%;
+    top: 30%;
+    left: 15%;
+    overflow: clip;
+}

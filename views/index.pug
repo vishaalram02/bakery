@@ -1,0 +1,51 @@
+html
+  head
+    title= "HackBakery"
+    link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css')
+    link(rel='stylesheet' href='/main.css' type='text/css')
+  body
+    div(class='title')
+      h1 Welcome to HackBakery
+    form(class="ui form")
+      div(class='ui two column grid order')
+        div(class="column")
+          div(class="field")
+            label First Name
+            input(type="text" name="first-name" placeholder="First Name")
+          div(class="field")
+            label Last Name
+            input(type="text" name="last-name" placeholder="Last Name")
+          div(class="field")
+            label Delivery Date
+            input(type="date" name="date" placeholder="Delivery Date")
+          div(class="inline fields")
+            label Select Size
+            div(class="field")
+              div(class="ui radio checkbox")
+                input(type="radio" name="size")
+                label 8''
+            div(class="field")
+              div(class="ui radio checkbox")
+                input(type="radio" name="size")
+                label 10''
+            div(class="field")
+              div(class="ui radio checkbox")
+                input(type="radio" name="size")
+                label 12''
+          button(class="ui button brown" style="margin-top: 5vh;" type="Submit") Send
+        
+          
+        div(class="column")
+          div(class="field")
+            label Upload Design
+            input(type="file" accept="image/*" name="design" id="design-input")
+            label(for="design-input" class="ui huge brown button" id="design-button") <i class="ui upload icon"></i> Image 
+          div(class="img-container")
+            object(data="/images/cake.jpeg" id="cake")
+            object(data="/images/hbday.png" id="caketop")
+  script(type='text/javascript', src="main.js")
+
+              
+              
+              
+
