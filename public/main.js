@@ -1,5 +1,5 @@
-
-
+//pass in username
+document.getElementById('uname').value = document.location.pathname;
 
 //preview design
 const imgInput = document.getElementById('design-input');

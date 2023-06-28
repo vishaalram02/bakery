@@ -5,8 +5,9 @@ html
     link(rel='stylesheet' href='/main.css' type='text/css')
   body
     div(class='title')
-      h1 Welcome to HackBakery
-    form(class="ui form")
+      h1="Hello " + username
+    form(class="ui form" action="/preview", method="post" enctype="multipart/form-data")
+      input(hidden type="text" name="uname" id="uname")
       div(class='ui two column grid order')
         div(class="column")
           div(class="field")
@@ -32,7 +33,7 @@ html
               div(class="ui radio checkbox")
                 input(type="radio" name="size")
                 label 12''
-          button(class="ui button brown" style="margin-top: 5vh;" type="Submit") Send
+          button(class="ui button brown" style="margin-top: 5vh;" type="submit") Send
         
           
         div(class="column")
@@ -43,7 +44,7 @@ html
           div(class="img-container")
             object(data="/images/cake.jpeg" id="cake")
             object(data="/images/hbday.png" id="caketop")
-  script(type='text/javascript', src="main.js")
+  script(type='text/javascript', src="/main.js")
 
               
               
