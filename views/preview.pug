@@ -4,8 +4,24 @@ html
     link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css')
     link(rel='stylesheet' href='/main.css' type='text/css')
   body
-    object(data="/images/cake.jpeg" id="cake")
-    object(data="/images/hbday.png" id="caketop")
+    div(class='title')
+        h1 Congrats! Your order has been sent.
+        h3 Vishy will see your order shortly!
+    div(class='order preview')
+      div(class="info")
+        div(id="name") <span style="color: black;" >Name:</span>
+        div(id="date") <span style="color: black;" >Delivery Date:</span>
+        div(id="size") <span style="color: black;" >Size:</span>
+      
+      div(class="cake-preview")
+        object(data="/images/cake.jpeg" id="cake")
+        object(data=`/images/${design}` id="caketop")
+
+    script. 
+      document.getElementById("name").innerHTML += " " + "#{first}" + " " + "#{last}"
+      document.getElementById("date").innerHTML += " " + "#{date}"
+      document.getElementById("size").innerHTML += " " + "#{size}"
+
 
               
               

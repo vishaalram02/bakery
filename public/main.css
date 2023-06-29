@@ -6,11 +6,16 @@ body {
     margin-top: 5vw;
     margin-bottom: 2vw;
     text-align: center;
+}
+
+.title h1 {
     color: brown;
+}
+.title h3 {
+    color: black;   
 }
 
 .order {
-    display: flex;
     height: 60%;
     width: 50vw;
     padding: 20px !important;
@@ -37,6 +42,8 @@ body {
 }
 
 .img-container {
+    border: 3px solid brown;
+    border-radius: 20px;
     position: relative;
     overflow: hidden;
     margin-top: 5vh;
@@ -44,13 +51,37 @@ body {
 
 #cake {
     position: relative;
-    width: 95%;
+    width: 100%;
 }
 
 #caketop {
     position: absolute;
     width: 60%;
     top: 30%;
-    left: 15%;
+    left: 20%;
     overflow: clip;
 }
+
+.preview {
+    color: brown;
+}
+
+.info {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    font-size: large;
+    font-weight: 600;   
+}
+
+.cake-preview {
+    border: 5px solid brown;
+    border-radius: 20px;
+    margin: auto;
+    margin-top: 2rem;
+    position: relative;
+    width: 70%;
+    overflow: hidden;
+}
+

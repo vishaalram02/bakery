@@ -5,17 +5,18 @@ html
     link(rel='stylesheet' href='/main.css' type='text/css')
   body
     div(class='title')
-      h1="Hello " + username
+      h1="hello " + username
+      h3 Place your cake order below:
     form(class="ui form" action="/preview", method="post" enctype="multipart/form-data")
       input(hidden type="text" name="uname" id="uname")
       div(class='ui two column grid order')
         div(class="column")
           div(class="field")
             label First Name
-            input(type="text" name="first-name" placeholder="First Name")
+            input(type="text" name="first" placeholder="First Name")
           div(class="field")
             label Last Name
-            input(type="text" name="last-name" placeholder="Last Name")
+            input(type="text" name="last" placeholder="Last Name")
           div(class="field")
             label Delivery Date
             input(type="date" name="date" placeholder="Delivery Date")
@@ -23,27 +24,28 @@ html
             label Select Size
             div(class="field")
               div(class="ui radio checkbox")
-                input(type="radio" name="size")
+                input(type="radio" name="size" value="8 inches")
                 label 8''
             div(class="field")
               div(class="ui radio checkbox")
-                input(type="radio" name="size")
+                input(type="radio" name="size" value="10 inches")
                 label 10''
             div(class="field")
               div(class="ui radio checkbox")
-                input(type="radio" name="size")
+                input(type="radio" name="size" value="12 inches")
                 label 12''
-          button(class="ui button brown" style="margin-top: 5vh;" type="submit") Send
+          button(class="ui button brown" style="margin-top: 5vh;" type="submit") Send to Vishy
         
           
         div(class="column")
           div(class="field")
             label Upload Design
+            // todo: make sure we also validate files server side
             input(type="file" accept="image/*" name="design" id="design-input")
             label(for="design-input" class="ui huge brown button" id="design-button") <i class="ui upload icon"></i> Image 
           div(class="img-container")
             object(data="/images/cake.jpeg" id="cake")
-            object(data="/images/hbday.png" id="caketop")
+            object(data="/images/test.svg" id="caketop")
   script(type='text/javascript', src="/main.js")
 
               
