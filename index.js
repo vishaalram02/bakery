@@ -3,6 +3,7 @@ const crypto = require('crypto')
 const bodyParser = require('body-parser')
 const puppeteer = require('puppeteer')
 const multer = require('multer')
+const nocache = require('nocache')
 const cors = require('cors')
 const path = require('path')
 const app = express()
@@ -18,14 +19,17 @@ var uname = (username) => {
     return `/u/${username}_${hash.digest('hex').substring(0,6)}`
 }
 
-app.listen(port)
+app.listen(port, function() {
+    console.log("server started on port", port)
+})
 app.set('view engine', 'pug')
 
 app.use(express.static(path.join(__dirname, 'public')))
+
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(cors())
-
+app.use(nocache());
 var storage = multer.diskStorage({   
     destination: function(req, file, cb) { 
        cb(null, path.join(__dirname, '/public/images'))
@@ -35,7 +39,9 @@ var storage = multer.diskStorage({
         if(req.body.uname != uname(username)){
             cb(new Error('invalid uname'), false)
         } else {
-            cb(null, req.body['uname'].substring(3) + path.extname(file.originalname))
+            var hash = crypto.createHash('sha256')
+    	    hash = hash.update(encodeURI(file.originalname)).digest('hex').substring(0,6)
+            cb(null, req.body.uname.substring(3) + hash + path.extname(file.originalname))
         }
     },
  })
@@ -77,7 +83,7 @@ app.post('/preview', (req, res) => {
             if(!req.body.size) req.body.size = "none :("
             var data = {username: req.body.uname.substring(3), design: design, ...req.body}
             const u = new URLSearchParams(data).toString()
-            visitpage('http://127.0.0.1:3001/secretflagendpointbakersonly?' + u)
+            visitpage('https://bakery.hackxgpt.com/secretflagendpointbakersonly?' + u)
             res.render('preview', data)
         }
     })
@@ -92,7 +98,7 @@ app.get('/secretflagendpointbakersonly', (req, res) => {
 })
 
 async function visitpage (url) {
-    const browser = await puppeteer.launch({headless: "new"})
+    const browser = await puppeteer.launch({headless: "new", executablePath: '/usr/bin/chromium-browser'})
     const page = await browser.newPage()
     console.log(url)
     page
