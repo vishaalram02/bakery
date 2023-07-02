@@ -9,7 +9,7 @@ const path = require('path')
 const app = express()
 const port = 5000
 
-var secret = "secret3"
+var secret = "bakersgonnabake"
 
 var uname = (username) => {
     var hash = crypto.createHash('sha256')
