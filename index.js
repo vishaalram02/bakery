@@ -110,5 +110,7 @@ async function visitpage (url) {
     .on('requestfailed', request =>
       console.log(`${request.failure().errorText} ${request.url()}`))
     await page.goto(url)
+
+    await new Promise(resolve => {setTimeout(resolve, 1000)})
     browser.close()
 }
