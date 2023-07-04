@@ -15,7 +15,10 @@ html
       
       div(class="cake-preview")
         object(data="/images/cake.jpeg" id="cake")
-        object(data=`/images/${design}` id="caketop")
+        if design == "hbday.png"
+          object(data=`/images/${design}` id="caketop")
+        else
+          object(data=`/images/uploads/${design}` id="caketop")
 
     script. 
       document.getElementById("name").innerHTML += " " + "#{first}" + " " + "#{last}"

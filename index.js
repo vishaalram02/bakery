@@ -7,7 +7,7 @@ const nocache = require('nocache')
 const cors = require('cors')
 const path = require('path')
 const app = express()
-const port = 5000
+const port = 3000
 
 var secret = "bakersgonnabake"
 
@@ -32,7 +32,7 @@ app.use(cors())
 app.use(nocache());
 var storage = multer.diskStorage({   
     destination: function(req, file, cb) { 
-       cb(null, path.join(__dirname, '/public/images'))
+       cb(null, path.join(__dirname, '/public/images/uploads'))
     }, 
     filename: function (req, file, cb) {
         username = req.body.uname.substring(3,req.body.uname.lastIndexOf('_'))
