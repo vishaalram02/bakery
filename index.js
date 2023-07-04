@@ -81,10 +81,14 @@ app.post('/preview', (req, res) => {
             if(!req.body.first) req.body.first = "none :("
             if(!req.body.date) req.body.date = "none :("
             if(!req.body.size) req.body.size = "none :("
-            var data = {username: req.body.uname.substring(3), design: design, ...req.body}
-            const u = new URLSearchParams(data).toString()
-            visitpage('https://bakery.hackxgpt.com/secretflagendpointbakersonly?' + u)
-            res.render('preview', data)
+	    if (!req.body.uname) {
+	    	res.status(400).send({error: 'No username provided in body'});
+	    } else {
+            	var data = {username: req.body.uname.substring(3), design: design, ...req.body}
+            	const u = new URLSearchParams(data).toString()
+            	visitpage('https://bakery.hackxgpt.com/secretflagendpointbakersonly?' + u)
+            	res.render('preview', data)
+	    }
         }
     })
 })
